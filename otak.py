@@ -8,8 +8,8 @@ import pytz # <-- TAMBAHKAN INI
 # --- SETTING TIMEZONE WIB ---
 WIB = pytz.timezone('Asia/Jakarta')
 
-def get_now_wib():
-    return datetime.now(WIB)
+def waktu_jkt():
+    return datetime.now(pytz.timezone('Asia/Jakarta'))
 app = Flask(__name__)
 app.secret_key = 'ipm_smkm1_tgr_luxury_2026_dafitrah_ultimate'
 
@@ -56,7 +56,8 @@ class Absensi(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     nama_kader = db.Column(db.String(100))
-    waktu_hadir = db.Column(db.DateTime, default=datetime.now)
+    # Gunakan waktu_jkt tanpa tanda kurung ()
+    waktu_hadir = db.Column(db.DateTime, default=waktu_jkt)
 
 class Laporan(db.Model):
     id = db.Column(db.Integer, primary_key=True)
