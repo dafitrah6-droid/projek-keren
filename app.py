@@ -30,7 +30,7 @@ class User(db.Model):
     kelas = db.Column(db.String(50))
     whatsapp = db.Column(db.String(20))
     role = db.Column(db.String(20), default='member')
-    created_at = db.Column(db.DateTime, default=datetime.now)
+    created_at = db.Column(db.DateTime, default=waktu_jkt)
     absensi = db.relationship('Absensi', backref='user', lazy=True)
 
 class Kas(db.Model):
@@ -38,7 +38,7 @@ class Kas(db.Model):
     tipe = db.Column(db.String(10)) 
     jumlah = db.Column(db.Integer)
     keterangan = db.Column(db.String(200))
-    tanggal = db.Column(db.DateTime, default=datetime.now)
+    tanggal = db.Column(db.DateTime, default=waktu_jkt)
 
 class Agenda(db.Model):
     id = db.Column(db.Integer, primary_key=True)
@@ -64,7 +64,7 @@ class Laporan(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('user.id'))
     nama_pelapor = db.Column(db.String(100))
     pesan = db.Column(db.Text, nullable=False)
-    waktu_lapor = db.Column(db.DateTime, default=datetime.now)
+    waktu_lapor = db.Column(db.DateTime, default=waktu_jkt)
 
 # --- INITIALIZE DATABASE ---
 with app.app_context():
