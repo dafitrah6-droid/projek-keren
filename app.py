@@ -78,8 +78,8 @@ with app.app_context():
             role='admin', 
             nis='ADM-01', 
             kelas='Pimpinan', 
-            whatsapp='08123456789',
-            gmail='admin@ipm.com'
+            whatsapp='08981607967',
+            gmail='dafitrah6@gmail.com'
         )
         db.session.add(admin)
         db.session.commit()
